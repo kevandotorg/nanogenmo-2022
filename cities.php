@@ -45,7 +45,7 @@ foreach($lines as $line)
 		[$score,$formatted] = score($line);
 
 		// improve the ASCII markup
-		$formatted = preg_replace("/--/","&mdash;",$formatted);
+		$formatted = preg_replace("/ ?-- ?/","&mdash;",$formatted);
 		$formatted = preg_replace("/\(_([^_]*)_\)/","<i>($1)</i>",$formatted);
 		$formatted = preg_replace("/_([^_]*)_/","<i>$1</i>",$formatted);
 
@@ -107,7 +107,8 @@ function score($line)
 {
 	global $vader;
 	
-	$words = preg_split('/([^A-Za-z\'\-]+)/', $line, -1, PREG_SPLIT_DELIM_CAPTURE|PREG_SPLIT_NO_EMPTY);
+	$words = preg_replace('/--/',' -- ',$line); // mdash
+	$words = preg_split('/([^A-Za-z\'\-]+)/', $words, -1, PREG_SPLIT_DELIM_CAPTURE|PREG_SPLIT_NO_EMPTY);
 	$score = 0; $notmul = 1; $posmul=1;
 	$formatted = "";
 	
@@ -115,7 +116,7 @@ function score($line)
 	{
 		$word = strtolower($oword);
 		
-		if ($word != "i'll") // shouldn't be parsed as "ill"
+		if ($word != "i'll" && $word != "he'll") // avoid "ill" and "hell"
 		{ $word = preg_replace("/[^A-Za-z]/","",$word); }
 		$caps = 0;
 		
