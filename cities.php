@@ -3,8 +3,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include("textfunctions.php");
-
 $text = file_get_contents('https://www.gutenberg.org/files/98/98-0.txt');
 $vader = file_get_contents('https://raw.githubusercontent.com/cjhutto/vaderSentiment/master/vaderSentiment/vader_lexicon.txt');
 
