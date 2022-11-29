@@ -6,4 +6,6 @@ The script uses the VADER sentiment lexicon. (Hutto, C.J. & Gilbert, E.E. (2014)
 
 ![Example output, the first paragraph of the book](https://raw.githubusercontent.com/kevandotorg/nanogenmo-2022/main/twocities.png)
 
+![Example output, a section from The Worst of Times](https://raw.githubusercontent.com/kevandotorg/nanogenmo-2022/main/screenshot%202.png)
+
 Full output: https://kevan.org/nanogenmo/2022/cities.html
